@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text should be hidden initially.
+  </div>
+
+  <script>
+    // Incorrectly using style.display = "none" 
+    // This only hides the element, it does not remove it from the layout.
+    document.getElementById("myDiv").style.display = "none";
+    
+    // This will cause unexpected behavior for other elements that depend on the layout.
+    setTimeout(function() {
+      document.getElementById("myDiv").style.display = "block";
+    }, 3000);
+  </script>
+</body>
+</html>
