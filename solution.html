@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+<style>
+  #myDiv {
+    visibility: hidden; /* Correct approach for hiding without affecting layout */
+    transition: visibility 0.3s linear;
+    /* For a smoother transition uncomment next line*/
+    /*opacity: 0;*/
+  }
+  #myDiv.show {
+    visibility: visible;
+    /* For a smoother transition uncomment next line*/
+    /*opacity: 1;*/
+  }
+</style>
+</head>
+<body>
+  <div id="myDiv">
+    This text should be hidden initially.
+  </div>
+
+  <script>
+    setTimeout(function() {
+      document.getElementById("myDiv").classList.add("show");
+    }, 3000);
+  </script>
+</body>
+</html>
